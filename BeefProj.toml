@@ -1,0 +1,10 @@
+FileVersion = 1
+
+[Project]
+Name = "libyaml-beef"
+TargetType = "BeefLib"
+StartupObject = "libyaml_beef.Program"
+
+[Configs.Debug.Win64]
+CLibType = "DynamicDebug"
+LibPaths = ["$(ProjectDir)\\libs\\libyaml-windows.lib"]
