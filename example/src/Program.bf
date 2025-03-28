@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Diagnostics;
 using System.IO;
-using static libyaml_Beef.libyaml;
+using static libyaml.libyaml;
 
 namespace example;
 

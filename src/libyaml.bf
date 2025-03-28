@@ -11,7 +11,7 @@
 using System;
 using System.Interop;
 
-namespace libyaml_Beef;
+namespace libyaml;
 
 public static class libyaml
 {
@@ -60,8 +60,7 @@ public static class libyaml
 	}
 
 	/** The stream encoding. */
-	[CRepr]
-	public enum yaml_encoding_t
+	public enum yaml_encoding_t : c_int
 	{
 		/** Let the parser choose the encoding. */
 		YAML_ANY_ENCODING,
@@ -75,8 +74,7 @@ public static class libyaml
 
 	/** Line break types. */
 
-	[CRepr]
-	public enum yaml_break_t
+	public enum yaml_break_t : c_int
 	{
 		/** Let the parser choose the break type. */
 		YAML_ANY_BREAK,
@@ -89,8 +87,7 @@ public static class libyaml
 	}
 
 	/** Many bad things could happen with the parser and emitter. */
-	[CRepr]
-	public enum yaml_error_type_t
+	public enum yaml_error_type_t : c_int
 	{
 		/** No error is produced. */
 		YAML_NO_ERROR,
@@ -125,12 +122,11 @@ public static class libyaml
 
 		/** The position column. */
 		yaml_size_t column;
-	};
+	}
 
 
 	/** Scalar styles. */
-	[CRepr]
-	public enum yaml_scalar_style_t
+	public enum yaml_scalar_style_t : c_int
 	{
 		/** Let the emitter choose the style. */
 		YAML_ANY_SCALAR_STYLE,
@@ -150,8 +146,7 @@ public static class libyaml
 	}
 
 	/** Sequence styles. */
-	[CRepr]
-	public enum yaml_sequence_style_t
+	public enum yaml_sequence_style_t : c_int
 	{
 		/** Let the emitter choose the style. */
 		YAML_ANY_SEQUENCE_STYLE,
@@ -163,8 +158,7 @@ public static class libyaml
 	}
 
 	/** Mapping styles. */
-	[CRepr]
-	public enum yaml_mapping_style_t
+	public enum yaml_mapping_style_t : c_int
 	{
 		/** Let the emitter choose the style. */
 		YAML_ANY_MAPPING_STYLE,
@@ -177,8 +171,7 @@ public static class libyaml
 	}
 
 	/** Token types. */
-	[CRepr]
-	public enum yaml_token_type_t
+	public enum yaml_token_type_t : c_int
 	{
 		/** An empty token. */
 		YAML_NO_TOKEN,
@@ -307,7 +300,7 @@ public static class libyaml
 		yaml_mark_t start_mark;
 	/** The end of the token. */
 		yaml_mark_t end_mark;
-	};
+	}
 
 	/**
 	 * Free any memory allocated for a token object.
@@ -317,8 +310,7 @@ public static class libyaml
 	[CLink] public static extern void yaml_token_delete(yaml_token_t* token);
 
 	/** Event types. */
-	[CRepr]
-	public enum yaml_event_type_t
+	public enum yaml_event_type_t : c_int
 	{
 		/** An empty event. */
 		YAML_NO_EVENT,
@@ -626,8 +618,7 @@ public static class libyaml
 	// #define YAML_DEFAULT_MAPPING_TAG    YAML_MAP_TAG
 
 	/** Node types. */
-	[CRepr]
-	public enum yaml_node_type_t
+	public enum yaml_node_type_t : c_int
 	{
 		/** An empty node. */
 		YAML_NO_NODE,
@@ -918,8 +909,7 @@ public static class libyaml
 	/**
 	 * The states of the parser.
 	 */
-	[CRepr]
-	public enum yaml_parser_state_t
+	public enum yaml_parser_state_t : c_int
 	{
 		/** Expect STREAM-START. */
 		YAML_PARSE_STREAM_START_STATE,
@@ -1213,7 +1203,7 @@ public static class libyaml
 		/** The currently parsed document. */
 		yaml_document_t* document;
 
-	};
+	}
 
 	/**
 	 * Initialize a parser.
@@ -1374,8 +1364,7 @@ public static class libyaml
 	public function int yaml_write_handler_t(void* data, c_uchar* buffer, yaml_size_t size);
 
 	/** The emitter states. */
-	[CRepr]
-	public enum yaml_emitter_state_t
+	public enum yaml_emitter_state_t : c_int
 	{
 		/** Expect STREAM-START. */
 		YAML_EMIT_STREAM_START_STATE,
